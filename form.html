@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<link rel="stylesheet" href="">
+</head>
+<body>
+
+	<h1>1. Tipos de input</h1>
+
+	<label>input type value:</label>
+	<input type="value">
+	<br></br>
+	<label>input type button</label>
+	<input type="button" value="Button"> 
+	<br></br>
+	<label>input type checkbox</label>
+	<input type="checkbox">CheckBox
+	<br></br>
+	<label>input type color</label>
+	<input type="color">
+	<br></br>
+	<label>input type date</label>
+	<input type="date">
+	<br></br>
+	<label>input type datetime</label>
+	<input type="datetime">
+	<br></br>
+	<label>input type datetime-local</label>
+	<input type="datetime-local">
+	<br></br>
+	<label>input type email</label>
+	<input type="email">
+	<br></br>
+	<label>input type file</label>
+	<input type="file">
+	<br></br>
+	<label>input type hidden</label>
+	<input type="hidden">
+	<br></br>
+	<label>input type image</label>
+	<input type="image" src="img/img_submit.gif">
+	<br></br>
+	<label>input type month</label>
+	<input type="month">
+	<br></br>
+	<label>input type number</label>
+	<input type="number">
+	<br></br>
+	<label>input type password</label>
+	<input type="password">
+	<br></br>
+	<label>input type radio</label>
+	<input type="radio">radioButton
+	<br></br>
+	<label>input type range</label>
+	<input type="range">
+	<br></br>
+	<label>input type reset</label>
+	<input type="reset">
+	<br></br>
+	<label>input type search</label>
+	<input type="search">
+	<br></br>
+	<label>input type submit</label>
+	<input type="submit">
+	<br></br>
+	<label>input type tel</label>
+	<input type="tel">
+	<br></br>
+	<label>input type text</label>
+	<input type="text">
+	<br></br>
+	<label>input type time</label>
+	<input type="time">
+	<br></br>
+	<label>input type url</label>
+	<input type="url">
+	<br></br>
+	<label>input type week</label>
+	<input type="week">
+	<br></br>
+
+	<h1>2. Una caja de texto que sólo pueda contener números, cuyos valores tienen que estar comprendidos entre 0 y 10.</h1>
+
+	<form name="form2" onclick="validateForm1()">
+		<p id="fnumermessage"></p>
+		Ingrese un numero entre 0 y 10 <input type="number" name="fnumber">
+		<input type="button" value="Enviar">
+	</form>
+
+	<script type="text/javascript">
+		function validateForm1() {			
+		    var x = document.forms["form2"]["fnumber"].value;
+		    console.log(x);
+		    var text = "";
+		    if (isNaN(x) || x < 0 || x > 10 || x === "") {
+		        text = "Numero invalido";
+		    } else {
+		        text = "Numero valido";
+		    }
+		    document.getElementById("fnumermessage").innerHTML = text;
+		}
+	</script>
+
+	<h1>3. Una caja de texto, a la cual aplicar los atributos autofocus, placeholder, required y autocomplete.</h1>
+
+	<form name="form3">
+		Nombre: <input type="text" autofocus="true" autocomplete="on" required placeholder="Nombre">
+		<input type="submit">		
+	</form>	
+
+	<h1>4. Un campo de selección de ficheros.</h1>
+	<form action="">		
+		<input type="file">
+	</form>
+
+	<h1>5. Un campo de introducción de password, donde el valor introducido debe cumplir lo siguiente: debe tener una longitud mínima de 8 caracteres, comenzar por un número y terminar en una letra mayúscula.</h1>
+	<form name="form5" onclick="validatePassword()">
+		<p id="fpassmessage"></p>
+		<label>Password:</label>
+		<input type="password" name="fpass">
+		<input type="button" value="Enviar">		
+	</form>
+
+	<script type="text/javascript">		
+		function validatePassword(){
+			var s = document.forms["form5"]["fpass"].value;			
+			var reg = "^[0-9]+[a-zA-Z]*[A-Z]+$";
+			var patt = new RegExp(reg);
+			var text = "";
+			if(patt.test(s) && s.length >= 8){
+				text = "password ok"
+			}else{
+				text = "Password invalido. debe comenzar por un numero y terminar en una letra mayuscula"
+			}
+			document.getElementById("fpassmessage").innerHTML = text;
+		}
+	</script>
+
+</body>
+</html>
